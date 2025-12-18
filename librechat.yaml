@@ -84,3 +84,13 @@ endpoints:
       # Recommended: Drop the stop parameter from the request as Openrouter models use a variety of stop tokens.
       dropParams: ['stop']
       modelDisplayLabel: 'OpenRouter'
+    - name: 'FluidAgent'
+      apiKey: '${FLUID_AGENT_API_KEY}'
+      baseURL: 'https://digital-fluidfluid-agent-service-production.up.railway.app/v1'
+      models:
+        default:
+          - 'fluid-agent'
+        fetch: false
+      titleConvo: true
+      titleModel: 'fluid-agent'
+      modelDisplayLabel: 'FluidAgent'
