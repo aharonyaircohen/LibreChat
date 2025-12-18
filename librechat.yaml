@@ -86,7 +86,7 @@ endpoints:
       modelDisplayLabel: 'OpenRouter'
     - name: 'FluidAgent'
       apiKey: '${FLUID_AGENT_API_KEY}'
-      baseURL: 'https://digital-fluidfluid-agent-service-production.up.railway.app/v1'
+      baseURL: '${FLUID_AGENT_API_URL}'
       models:
         default:
           - 'fluid-agent'
