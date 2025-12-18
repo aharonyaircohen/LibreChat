@@ -8,20 +8,20 @@ version: 1.2.1
 cache: true
 
 interface:
-  customWelcome: 'Welcome to LibreChat! Enjoy your experience.'
+  customWelcome: "Welcome to LibreChat! Enjoy your experience."
   fileSearch: true
   # Privacy policy settings
   privacyPolicy:
-    externalUrl: 'https://librechat.ai/privacy-policy'
+    externalUrl: "https://librechat.ai/privacy-policy"
     openNewTab: true
 
   # Terms of service
   termsOfService:
-    externalUrl: 'https://librechat.ai/tos'
+    externalUrl: "https://librechat.ai/tos"
     openNewTab: true
     modalAcceptance: true
-    modalTitle: 'Terms of Service for LibreChat'
-    modalContent: 'By using LibreChat, you agree to comply with our Terms of Service. Please read them carefully before proceeding.'
+    modalTitle: "Terms of Service for LibreChat"
+    modalContent: "By using LibreChat, you agree to comply with our Terms of Service. Please read them carefully before proceeding."
 
   endpointsMenu: true
   modelSelect: true
@@ -39,58 +39,58 @@ interface:
   marketplace:
     use: false
   fileCitations: true
- 
+
 registration:
-  socialLogins: ['github', 'google', 'discord', 'openid', 'facebook', 'apple', 'saml']
- 
+  socialLogins:
+    ["github", "google", "discord", "openid", "facebook", "apple", "saml"]
+
 actions:
   allowedDomains:
-    - 'swapi.dev'
-    - 'librechat.ai'
-    - 'google.com'
+    - "swapi.dev"
+    - "librechat.ai"
+    - "google.com"
 
 endpoints:
-
   custom:
     # Groq Example
-    - name: 'groq'
-      apiKey: '${GROQ_API_KEY}'
-      baseURL: 'https://api.groq.com/openai/v1/'
+    - name: "groq"
+      apiKey: "${GROQ_API_KEY}"
+      baseURL: "https://api.groq.com/openai/v1/"
       models:
         default:
-          - 'llama3-70b-8192'
-          - 'llama3-8b-8192'
-          - 'llama2-70b-4096'
-          - 'mixtral-8x7b-32768'
-          - 'gemma-7b-it'
+          - "llama3-70b-8192"
+          - "llama3-8b-8192"
+          - "llama2-70b-4096"
+          - "mixtral-8x7b-32768"
+          - "gemma-7b-it"
         fetch: false
       titleConvo: true
-      titleModel: 'mixtral-8x7b-32768'
-      modelDisplayLabel: 'groq'
+      titleModel: "mixtral-8x7b-32768"
+      modelDisplayLabel: "groq"
 
     # OpenRouter Example
-    - name: 'OpenRouter'
+    - name: "OpenRouter"
       # For `apiKey` and `baseURL`, you can use environment variables that you define.
       # recommended environment variables:
-      apiKey: '${OPENROUTER_API_NEW_KEY}'
-      baseURL: 'https://openrouter.ai/api/v1'
+      apiKey: "${OPENROUTER_API_NEW_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
       headers:
-          x-librechat-body-parentmessageid: '{{LIBRECHAT_BODY_PARENTMESSAGEID}}'
+        x-librechat-body-parentmessageid: "{{LIBRECHAT_BODY_PARENTMESSAGEID}}"
       models:
-        default: ['meta-llama/llama-3-70b-instruct']
+        default: ["meta-llama/llama-3-70b-instruct"]
         fetch: true
       titleConvo: true
-      titleModel: 'meta-llama/llama-3-70b-instruct'
+      titleModel: "meta-llama/llama-3-70b-instruct"
       # Recommended: Drop the stop parameter from the request as Openrouter models use a variety of stop tokens.
-      dropParams: ['stop']
-      modelDisplayLabel: 'OpenRouter'
-    - name: 'FluidAgent'
-      apiKey: '${FLUID_AGENT_API_KEY}'
-      baseURL: '${FLUID_AGENT_API_URL}'
+      dropParams: ["stop"]
+      modelDisplayLabel: "OpenRouter"
+    - name: "FluidAgent"
+      apiKey: "${FLUID_AGENT_API_KEY}"
+      baseURL: "${FLUID_AGENT_API_URL}"
       models:
         default:
-          - 'fluid-agent'
+          - "fluid-agent"
         fetch: false
       titleConvo: false
-      titleModel: 'fluid-agent'
-      modelDisplayLabel: 'FluidAgent'
+      titleModel: "fluid-agent"
+      modelDisplayLabel: "FluidAgent"
