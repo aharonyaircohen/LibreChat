@@ -41,8 +41,7 @@ interface:
   fileCitations: true
 
 registration:
-  socialLogins:
-    ["github", "google", "discord", "openid", "facebook", "apple", "saml"]
+  socialLogins: ["github", "google", "discord", "openid", "facebook", "apple", "saml"]
 
 actions:
   allowedDomains:
