@@ -91,6 +91,6 @@ endpoints:
         default:
           - 'fluid-agent'
         fetch: false
-      titleConvo: true
+      titleConvo: false
       titleModel: 'fluid-agent'
       modelDisplayLabel: 'FluidAgent'
