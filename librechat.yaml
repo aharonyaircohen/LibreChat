@@ -86,6 +86,8 @@ endpoints:
     - name: "FluidAgent"
       apiKey: "${FLUID_AGENT_API_KEY}"
       baseURL: "${FLUID_AGENT_API_URL}"
+      headers:
+        X-Session-Id: sess_{{LIBRECHAT_USER_ID}}
       models:
         default:
           - "fluid-agent"
