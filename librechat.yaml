@@ -1,21 +1,17 @@
 # For more information, see the Configuration Guide:
 # https://www.librechat.ai/docs/configuration/librechat_yaml
 
-# Configuration version (required)
 version: 1.2.1
-
-# Cache settings: Set to true to enable caching
 cache: true
 
 interface:
   customWelcome: "Welcome to LibreChat! Enjoy your experience."
   fileSearch: true
-  # Privacy policy settings
+
   privacyPolicy:
     externalUrl: "https://librechat.ai/privacy-policy"
     openNewTab: true
 
-  # Terms of service
   termsOfService:
     externalUrl: "https://librechat.ai/tos"
     openNewTab: true
@@ -32,12 +28,15 @@ interface:
   bookmarks: true
   multiConvo: true
   agents: true
+
   peoplePicker:
     users: true
     groups: true
     roles: true
+
   marketplace:
     use: false
+
   fileCitations: true
 
 registration:
@@ -50,48 +49,84 @@ actions:
     - "google.com"
 
 endpoints:
+  agents:
+    disableBuilder: false
   custom:
-    # Groq Example
-    - name: "groq"
-      apiKey: "${GROQ_API_KEY}"
-      baseURL: "https://api.groq.com/openai/v1/"
-      models:
-        default:
-          - "llama3-70b-8192"
-          - "llama3-8b-8192"
-          - "llama2-70b-4096"
-          - "mixtral-8x7b-32768"
-          - "gemma-7b-it"
-        fetch: false
-      titleConvo: true
-      titleModel: "mixtral-8x7b-32768"
-      modelDisplayLabel: "groq"
-
-    # OpenRouter Example
     - name: "OpenRouter"
-      # For `apiKey` and `baseURL`, you can use environment variables that you define.
-      # recommended environment variables:
       apiKey: "${OPENROUTER_API_NEW_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
-      headers:
-        x-librechat-body-parentmessageid: "{{LIBRECHAT_BODY_PARENTMESSAGEID}}"
       models:
-        default: ["meta-llama/llama-3-70b-instruct"]
-        fetch: true
-      titleConvo: true
-      titleModel: "meta-llama/llama-3-70b-instruct"
-      # Recommended: Drop the stop parameter from the request as Openrouter models use a variety of stop tokens.
-      dropParams: ["stop"]
-      modelDisplayLabel: "OpenRouter"
+        default:
+          - openrouter/auto
+
+          - "---FREE---"
+          - deepseek/deepseek-r1-0528:free
+          - google/gemma-3-12b-it:free
+          - google/gemma-3-27b-it:free
+          - meta-llama/llama-3.3-70b-instruct:free
+          - moonshotai/kimi-k2:free
+          - qwen/qwen3-coder:free
+          - qwen/qwen3-235b-a22b:free
+
+          - "---EXTENDED---"
+          - openai/gpt-4o:extended
+
+          - "---ANTHROPIC---"
+          - anthropic/claude-sonnet-4.5
+          - anthropic/claude-opus-4.5
+          - anthropic/claude-opus-4.1
+          - anthropic/claude-sonnet-4
+
+          - "---OPENAI---"
+          - openai/chatgpt-4o-latest
+          - openai/gpt-4o
+          - openai/gpt-4.1
+          - openai/gpt-4.1-mini
+          - openai/gpt-5
+          - openai/gpt-5-chat
+          - openai/gpt-5-codex
+          - openai/o3
+          - openai/o3-pro
+          - openai/o4-mini
+          - openai/o4-mini-high
+
+          - "---GOOGLE---"
+          - google/gemini-2.5-pro
+          - google/gemini-2.5-flash
+          - google/gemini-2.5-flash-lite
+          - google/gemini-3-pro-preview
+          - google/gemini-3-flash-preview
+          - google/gemini-2.5-flash-image-preview
+
+          - "---X-AI---"
+          - x-ai/grok-4
+          - x-ai/grok-4-fast
+          - x-ai/grok-4.1-fast
+          - x-ai/grok-code-fast-1
+
+          - "---Z-AI---"
+          - z-ai/glm-4.6
+          - z-ai/glm-4.6:exacto
+          - z-ai/glm-4.6v
+
+    # Direct DeepSeek (OpenAI-compatible)
+    - name: "DeepSeek"
+      apiKey: "${DEEPSEEK_API_KEY}"
+      baseURL: "https://api.deepseek.com/v1"
+      models:
+        default:
+          - deepseek-chat
+          - deepseek-reasoner
+
     - name: "FluidAgent"
       apiKey: "${FLUID_AGENT_API_KEY}"
       baseURL: "${FLUID_AGENT_API_URL}"
       headers:
-        X-Session-Id: sess_{{LIBRECHAT_USER_ID}}
+        X-Session-Id: "sess_{{LIBRECHAT_USER_ID}}"
       models:
         default:
           - "fluid-agent"
-        fetch: false
+      fetch: false
       titleConvo: false
       titleModel: "fluid-agent"
       modelDisplayLabel: "FluidAgent"
